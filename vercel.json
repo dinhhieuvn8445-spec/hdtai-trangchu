@@ -11,14 +11,14 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api"
+      "source": "/api/(.*)",
+      "destination": "/api"
     },
     {
-      "src": "/(.*)",
-      "dest": "/client/index.html"
+      "source": "/(.*)",
+      "destination": "/client/dist/index.html"
     }
   ]
 }
