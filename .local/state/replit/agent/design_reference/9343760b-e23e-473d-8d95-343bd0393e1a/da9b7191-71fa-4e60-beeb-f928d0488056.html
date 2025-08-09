@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KingAI - Nền tảng học tập trí tuệ nhân tạo hàng đầu Việt Nam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#6366F1',
+                    secondary: '#1F2937',
+                    accent: '#EF4444'
+                },
+                fontFamily: {
+                    'vietnamese': ['Inter', 'system-ui', 'sans-serif']
+                }
+            }
+        }
+    };
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="font-vietnamese bg-gray-50">
+    <!-- @COMPONENT: Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-4">
+                    <div class="text-2xl font-bold text-primary">
+                        <i class="fas fa-brain mr-2"></i>
+                        KingAI
+                    </div>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Khóa học</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Giảng viên</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Về chúng tôi</a>
+                    <a href="#" class="text-gray-700 hover:text-primary transition-colors">Liên hệ</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-700 hover:text-primary transition-colors">
+                        <span data-bind="auth.isLoggedIn ? 'Đăng xuất' : 'Đăng nhập'" data-mock="true">Đăng nhập</span>
+                    </button>
+                    <button class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors" data-event="click:handleRegister">
+                        <i class="fas fa-user-plus mr-2"></i>
+                        khách hàng đăng ký
+                    </button>
+                </div>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-purple-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-mock="true">
+                Khám phá thế giới <span class="text-yellow-300">Trí tuệ nhân tạo</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-mock="true">
+                Nền tảng học tập AI hàng đầu Việt Nam với đội ngũ giảng viên chuyên nghiệp
+            </p>
+            <button class="bg-accent text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-600 transition-colors" data-event="click:handleGetStarted">
+                <i class="fas fa-rocket mr-2"></i>
+                Bắt đầu học ngay
+            </button>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Instructor Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-mock="true">
+                    Thông tin nổi bật về đội ngũ nhân sự của HDT
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto" data-mock="true">
+                    Đội ngũ giảng viên giàu kinh nghiệm với chuyên môn sâu trong lĩnh vực trí tuệ nhân tạo
+                </p>
+            </div>
+
+            <!-- @MAP: instructors.map(instructor => ( -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                
+                <!-- Instructor 1: Hoàng Anh Tú -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" data-mock="true">
+                    <div class="aspect-square bg-gradient-to-br from-primary to-purple-600 relative overflow-hidden">
+                        <!-- Professional headshot of Vietnamese young man in business suit -->
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCADIAMgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" 
+                             alt="Giảng viên Hoàng Anh Tú" 
+                             class="w-full h-full object-cover object-center" 
+                             data-mock-image="true"
+                             data-implementation="Replace with vietnamese_young_man_1754669358243.png">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-bind="instructor.name" data-mock="true">
+                            Giảng viên: Hoàng Anh Tú
+                        </h3>
+                        <p class="text-gray-600 mb-4" data-bind="instructor.specialization" data-mock="true">
+                            <span class="font-semibold">Chuyên môn:</span> <br>
+                            <span class="text-sm">zyxt - ximgmuzrt34</span>
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm" data-mock="true">Machine Learning</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm" data-mock="true">Deep Learning</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm" data-mock="true">Python</span>
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm" data-mock="true">TensorFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 2: Thanh Hải -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" data-mock="true">
+                    <div class="aspect-square bg-gradient-to-br from-primary to-purple-600 relative overflow-hidden">
+                        <!-- Casual photo of Vietnamese man with glasses in library setting -->
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCADIAMgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" 
+                             alt="Giảng viên Thanh Hải" 
+                             class="w-full h-full object-cover object-center" 
+                             data-mock-image="true"
+                             data-implementation="Replace with vietnamese_young_man_3_1754669391855.png">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-bind="instructor.name" data-mock="true">
+                            Giảng viên: Thanh Hải
+                        </h3>
+                        <p class="text-gray-600 mb-4" data-bind="instructor.specialization" data-mock="true">
+                            <span class="font-semibold">Chuyên môn:</span> <br>
+                            <span class="text-sm">Data Science & Analytics</span>
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm" data-mock="true">Data Science</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Analytics</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm" data-mock="true">Python</span>
+                                <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm" data-mock="true">R</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructor 3: HPT -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" data-mock="true">
+                    <div class="aspect-square bg-gradient-to-br from-primary to-purple-600 relative overflow-hidden">
+                        <!-- Headshot of Asian man -->
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCADIAMgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==" 
+                             alt="Giảng viên HPT" 
+                             class="w-full h-full object-cover object-center" 
+                             data-mock-image="true"
+                             data-implementation="Replace with thịnh công tử_1754669398309.png">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2" data-bind="instructor.name" data-mock="true">
+                            Giảng viên: HPT
+                        </h3>
+                        <p class="text-gray-600 mb-4" data-bind="instructor.specialization" data-mock="true">
+                            <span class="font-semibold">Chuyên môn:</span> <br>
+                            <span class="text-sm">AI Development & Strategy</span>
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm" data-mock="true">Strategy</span>
+                                <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm" data-mock="true">Development</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm" data-mock="true">OpenAI</span>
+                                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm" data-mock="true">GPT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+
+            <div class="text-center mt-12">
+                <button class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors" data-event="click:handleViewAllInstructors">
+                    <i class="fas fa-users mr-2"></i>
+                    Xem tất cả giảng viên
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Instructor Section -->
+
+    <!-- @COMPONENT: Features Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-mock="true">
+                    Tại sao chọn KingAI?
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto" data-mock="true">
+                    Nền tảng học tập AI toàn diện với phương pháp giảng dạy hiện đại
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="text-center p-6" data-mock="true">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Giảng viên chuyên nghiệp</h3>
+                    <p class="text-gray-600">Đội ngũ giảng viên giàu kinh nghiệm trong lĩnh vực AI và Machine Learning</p>
+                </div>
+
+                <div class="text-center p-6" data-mock="true">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Thực hành thực tế</h3>
+                    <p class="text-gray-600">Học qua các dự án thực tế và case study từ các công ty hàng đầu</p>
+                </div>
+
+                <div class="text-center p-6" data-mock="true">
+                    <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Chứng chỉ uy tín</h3>
+                    <p class="text-gray-600">Nhận chứng chỉ được công nhận trong ngành công nghiệp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Features Section -->
+
+    <!-- @COMPONENT: CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-mock="true">
+                Sẵn sàng bắt đầu hành trình AI của bạn?
+            </h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-mock="true">
+                Tham gia cùng hàng ngàn học viên đã thành công với KingAI
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-accent text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-600 transition-colors" data-event="click:handleRegister">
+                    <i class="fas fa-user-plus mr-2"></i>
+                    Đăng ký ngay
+                </button>
+                <button class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors" data-event="click:handleLearnMore">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Tìm hiểu thêm
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: CTA Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-brain text-2xl text-primary"></i>
+                        <span class="text-2xl font-bold">KingAI</span>
+                    </div>
+                    <p class="text-gray-400 mb-4" data-mock="true">
+                        Nền tảng học tập AI hàng đầu Việt Nam, mang đến kiến thức và kỹ năng thực tiễn cho thế hệ tương lai.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-mock="true">Khóa học</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-mock="true">Machine Learning Cơ bản</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-mock="true">Deep Learning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-mock="true">Computer Vision</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-mock="true">Natural Language Processing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-mock="true">Hỗ trợ</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-mock="true">Trung tâm trợ giúp</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-mock="true">Liên hệ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-mock="true">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-mock="true">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-mock="true">Liên hệ</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-envelope"></i>
+                            <span data-mock="true">contact@kingai.com.vn</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-phone"></i>
+                            <span data-mock="true">+84 (0)28 1234 5678</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-mock="true">TP. Hồ Chí Minh, Việt Nam</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p data-mock="true">&copy; 2024 KingAI. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+    (function() {
+        // TODO: Implement business logic, API calls, or state management
+        
+        // Simple interactive handlers for demo purposes
+        document.querySelectorAll('[data-event]').forEach(element => {
+            const eventHandler = element.getAttribute('data-event');
+            const [event, handler] = eventHandler.split(':');
+            
+            element.addEventListener(event, function() {
+                console.log(`Handler: ${handler} triggered`);
+                // TODO: Implement actual functionality
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                console.log('Mobile menu toggle');
+                // TODO: Implement mobile menu functionality
+            });
+        }
+    })();
+    </script>
+
+</body>
+</html>

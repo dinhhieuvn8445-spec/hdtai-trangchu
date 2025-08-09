@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDT AI - Khóa Học AI & Automation Chuyên Nghiệp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#1E40AF',
+                        'secondary': '#059669',
+                        'accent': '#DC2626',
+                        'warning': '#F59E0B'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-inter bg-gray-50">
+
+    <!-- @COMPONENT: Navigation -->
+    <!-- Header Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-primary">HDT AI</h1>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Giới thiệu</a>
+                        <a href="#courses" class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Khóa học</a>
+                        <a href="#instructors" class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Giảng viên</a>
+                        <a href="#news" class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Tin tức</a>
+                        <a href="#contact" class="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Liên hệ</a>
+                        <a href="#register" class="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">Đăng ký ngay</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block text-gray-700 hover:text-primary px-3 py-2 text-base font-medium">Giới thiệu</a>
+                <a href="#courses" class="block text-gray-700 hover:text-primary px-3 py-2 text-base font-medium">Khóa học</a>
+                <a href="#instructors" class="block text-gray-700 hover:text-primary px-3 py-2 text-base font-medium">Giảng viên</a>
+                <a href="#news" class="block text-gray-700 hover:text-primary px-3 py-2 text-base font-medium">Tin tức</a>
+                <a href="#contact" class="block text-gray-700 hover:text-primary px-3 py-2 text-base font-medium">Liên hệ</a>
+                <a href="#register" class="block bg-primary text-white px-3 py-2 text-base font-medium mx-3 rounded-lg text-center">Đăng ký ngay</a>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-primary via-blue-600 to-blue-800 text-white py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                <div class="mb-8 lg:mb-0">
+                    <div class="inline-block bg-warning text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                        🎁 Dành riêng cho 200 người đăng ký đầu tiên
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Làm chủ <span class="text-yellow-300">AI</span> trong công việc
+                    </h1>
+                    <p class="text-xl mb-8 text-blue-100 leading-relaxed">
+                        Khóa học toàn diện về ChatGPT, AI Automation và ứng dụng thực tế trong công việc. 
+                        Từ cơ bản đến nâng cao với đội ngũ giảng viên chuyên nghiệp.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="#register" class="bg-secondary hover:bg-green-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 text-center">
+                            <i class="fas fa-rocket mr-2"></i>Đăng ký ngay
+                        </a>
+                        <a href="#video" class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-semibold text-lg transition-all text-center">
+                            <i class="fas fa-play mr-2"></i>Xem video giới thiệu
+                        </a>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                        <div class="text-center">
+                            <div class="text-5xl font-bold text-yellow-300 mb-2" data-mock="true">0 VNĐ</div>
+                            <div class="text-sm text-blue-100">Tặng kèm sách thiết kế công việc cho trợ lý cá nhân</div>
+                            <div class="text-xs text-blue-200 mt-2">(Áp dụng các khóa học Online + Offline của Giảng viên HDT AI)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:text-center">
+                    <!-- Video introduction placeholder -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center">
+                        <i class="fas fa-play-circle text-8xl text-yellow-300 mb-4"></i>
+                        <h3 class="text-2xl font-semibold mb-4">Video giới thiệu về HDT AI</h3>
+                        <p class="text-blue-100 mb-6">Các bài giảng trong khóa học được thiết kế ngắn gọn, dễ hiểu, kèm ví dụ thực tiễn.</p>
+                        <button class="bg-yellow-300 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-200 transition-colors">
+                            Xem ngay
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Features Section -->
+    <!-- Features/Strengths Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Thế mạnh/Điểm mạnh</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Mô tả chung về khóa học chúng tôi cung cấp</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-xl hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Nội dung toàn diện, thực tế</h3>
+                    <p class="text-gray-600">Khóa học được xây dựng từ nền tảng căn bản đến nâng cao, bám sát nhu cầu công việc thực tế.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-xl hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Phương pháp đào tạo khoa học</h3>
+                    <p class="text-gray-600">Áp dụng 5 phương pháp ra lệnh độc quyền, giúp ChatGPT trả kết quả chính xác và đúng ý.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-violet-100 p-8 rounded-xl hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-toolbox text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Bộ prompt mẫu độc quyền</h3>
+                    <p class="text-gray-600">Hàng chục prompt mẫu chất lượng cao, template sẵn dùng, cùng các ví dụ minh họa thực chiến từng bước.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-orange-50 to-amber-100 p-8 rounded-xl hover:shadow-lg transition-all">
+                    <div class="w-16 h-16 bg-warning rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Hỗ trợ cá nhân hóa</h3>
+                    <p class="text-gray-600">Mentoring 1:1 khi cần, cập nhật liên tục theo công nghệ mới nhất và đồng hành lâu dài.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Features Section -->
+
+    <!-- @COMPONENT: Instructors Section -->
+    <!-- Instructors Section -->
+    <section id="instructors" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Người chắp cánh đam mê</h2>
+                <p class="text-xl text-gray-600">Thông tin nổi bật về đội ngũ nhân sự của HDT</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Instructor 1: Hoàng Anh Tú -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <!-- Professional headshot of Vietnamese young man in business suit -->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Giảng viên Hoàng Anh Tú" class="w-full h-64 object-cover" data-mock-image="true" data-implementation="Use vietnamese_young_man_1754669358243.png here" />
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Giảng viên: Hoàng Anh Tú</h3>
+                        <p class="text-primary font-medium mb-4">zyt - xingmuzi134</p>
+                        <div class="mb-4">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Canva</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">ChatGPT</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Capcut</span>
+                                <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">YouTube</span>
+                                <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">TikTok</span>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-600 italic">
+                            "Tôi đã giảng dạy về các công cụ hỗ trợ Marketing, các công cụ AI như Leonardo AI, KlingAI, Digen, HeyGen, D-ID, Video-Gen... và các công cụ hỗ trợ viết content, công cụ xử lý hình ảnh, videos, âm thanh.."
+                        </blockquote>
+                    </div>
+                </div>
+
+                <!-- Instructor 2: Thanh Hải -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <!-- Professional photo of Vietnamese young man with glasses in casual setting -->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Giảng viên Thanh Hải" class="w-full h-64 object-cover" data-mock-image="true" data-implementation="Use vietnamese_young_man_3_1754669391855.png here" />
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Giảng viên: Thanh Hải</h3>
+                        <div class="mb-4">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Make</span>
+                                <span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm">N8N</span>
+                                <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Rapier</span>
+                                <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Fchat</span>
+                                <span class="bg-lime-100 text-lime-800 px-3 py-1 rounded-full text-sm">ManyChat</span>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-600 italic">
+                            "Tôi đã giảng dạy về các công cụ hỗ trợ Marketing, các công cụ Automations hỗ trợ xây dựng quy trình tự động hóa cho nhiều cá nhân và doanh nghiệp..."
+                        </blockquote>
+                    </div>
+                </div>
+
+                <!-- Instructor 3: HPT -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <!-- Professional photo of Vietnamese young man with styled hair -->
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="Giảng viên HPT" class="w-full h-64 object-cover" data-mock-image="true" data-implementation="Use thịnh công tử_1754669398309.png here" />
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Giảng viên: HPT</h3>
+                        <div class="mb-4">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm">Open Hand</span>
+                                <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm">Devin</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">OpenAI</span>
+                            </div>
+                        </div>
+                        <blockquote class="text-gray-600 italic">
+                            "Tôi đã giảng dạy về các công cụ mã nguồn mở, các công cụ AI và lập trình mã nguồn mở, lập trình hướng đối tượng"
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Instructors Section -->
+
+    <!-- @COMPONENT: Courses Section -->
+    <!-- Course Curriculum Section -->
+    <section id="courses" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Lộ trình học</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Khóa học được chia thành 3 phần chính, từ cơ bản đến nâng cao</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Phase I -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-8 border-2 border-blue-200 hover:shadow-lg transition-all">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold text-xl">I</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">PHẦN I – AI MASTER</h3>
+                        <div class="text-3xl font-bold text-primary mt-2">3.000K</div>
+                    </div>
+                    
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Làm quen ChatGPT: khái niệm, cách vận hành</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Cách mô tả yêu cầu, xác định mục tiêu</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Kỹ năng quản lý session hiệu quả</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>5 phương pháp ra lệnh chuẩn</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Thực hành cơ bản và ứng dụng</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 p-4 bg-blue-100 rounded-lg">
+                        <p class="text-sm text-blue-800"><strong>🎯 Mục tiêu:</strong> Giúp học viên hiểu và sử dụng ChatGPT thành thạo ở mức cơ bản, tự tin giao tiếp và thao tác các yêu cầu thông thường.</p>
+                    </div>
+                </div>
+
+                <!-- Phase II -->
+                <div class="bg-gradient-to-br from-purple-50 to-violet-100 rounded-xl p-8 border-2 border-purple-200 hover:shadow-lg transition-all">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold text-xl">II</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">PHẦN II – AI AUTOMATION</h3>
+                        <div class="text-3xl font-bold text-purple-600 mt-2">3.000K</div>
+                    </div>
+                    
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Cá nhân hóa ChatGPT: cài đặt, tuỳ chỉnh</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Biến ChatGPT thành trợ lý ảo</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Xây chatbot trả lời tự động</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Tạo video với ChatGPT</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>So sánh các AI khác (Gemini, Claude...)</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 p-4 bg-purple-100 rounded-lg">
+                        <p class="text-sm text-purple-800"><strong>🎯 Mục tiêu:</strong> Giúp học viên không chỉ sử dụng, mà làm chủ và tự biến ChatGPT thành công cụ tăng trưởng vượt bậc.</p>
+                    </div>
+                </div>
+
+                <!-- Phase III -->
+                <div class="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-8 border-2 border-green-200 hover:shadow-lg transition-all">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-white font-bold text-xl">III</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">PHẦN III – AI IN REAL WORK</h3>
+                        <div class="text-3xl font-bold text-secondary mt-2">4.000K</div>
+                    </div>
+                    
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>ChatGPT hỗ trợ xử lý văn bản Word</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Sử dụng ChatGPT với Excel</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Ứng dụng trong soạn thảo báo cáo</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Tự động hóa thao tác lặp lại</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-secondary mr-3 mt-1"></i>
+                            <span>Bài tập thực hành trực tiếp</span>
+                        </li>
+                    </ul>
+
+                    <div class="mt-8 p-4 bg-green-100 rounded-lg">
+                        <p class="text-sm text-green-800"><strong>🎯 Mục tiêu:</strong> Giúp học viên tối ưu hóa công việc hành chính, văn phòng, nâng cao hiệu suất và giảm thời gian thao tác.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full Combo Offer -->
+            <div class="mt-12 bg-gradient-to-r from-primary via-blue-600 to-indigo-700 rounded-2xl p-8 text-white text-center">
+                <h3 class="text-3xl font-bold mb-4">🔥 Full Combo + 365 ngày support</h3>
+                <div class="flex items-center justify-center mb-4">
+                    <span class="text-2xl line-through text-blue-200 mr-4">10.000K</span>
+                    <span class="text-5xl font-bold text-yellow-300">9.000K</span>
+                </div>
+                <p class="text-xl text-blue-100 mb-6">Tiết kiệm 1.000K - Đã giảm giá 10%</p>
+                <p class="text-blue-100 mb-8">Đăng ký trước ngày 30/10/2025</p>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Courses Section -->
+
+    <!-- @COMPONENT: Countdown Timer -->
+    <!-- Countdown Timer Section -->
+    <section class="py-16 bg-gradient-to-r from-accent via-red-600 to-pink-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-8">⏰ NHANH TAY LÊN! Thời gian ưu đãi cho khóa học</h2>
+            
+            <div class="grid grid-cols-4 gap-4 mb-8 max-w-2xl mx-auto">
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-4xl font-bold" id="days" data-bind="countdown.days" data-mock="true">13</div>
+                    <div class="text-sm">Ngày</div>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-4xl font-bold" id="hours" data-bind="countdown.hours" data-mock="true">23</div>
+                    <div class="text-sm">Giờ</div>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-4xl font-bold" id="minutes" data-bind="countdown.minutes" data-mock="true">59</div>
+                    <div class="text-sm">Phút</div>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-4xl font-bold" id="seconds" data-bind="countdown.seconds" data-mock="true">57</div>
+                    <div class="text-sm">Giây</div>
+                </div>
+            </div>
+
+            <a href="#register" class="bg-yellow-300 text-gray-900 px-8 py-4 rounded-lg font-bold text-xl hover:bg-yellow-200 transition-colors transform hover:scale-105 inline-block">
+                <i class="fas fa-bolt mr-2"></i>Đăng ký ngay
+            </a>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Countdown Timer -->
+
+    <!-- @COMPONENT: Registration Form -->
+    <!-- Registration Form Section -->
+    <section id="register" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">ĐĂNG KÍ NHẬN ƯU ĐÃI</h2>
+                <p class="text-xl text-gray-600">Điền thông tin để nhận tư vấn và đăng ký khóa học</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <form id="registration-form" class="space-y-6" data-implementation="Should integrate with Google Sheets API">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Họ và tên *</label>
+                            <input type="text" name="fullName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập họ tên đầy đủ" data-mock="true">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Số điện thoại *</label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập số điện thoại" data-mock="true">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập địa chỉ email" data-mock="true">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Chọn sản phẩm *</label>
+                        <select name="coursePackage" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" data-mock="true">
+                            <option value="">-- Chọn gói khóa học --</option>
+                            <option value="ai-master">PHẦN I – AI MASTER - 3.000K</option>
+                            <option value="ai-automation">PHẦN II – AI AUTOMATION - 3.000K</option>
+                            <option value="ai-real-work">PHẦN III – AI IN REAL WORK - 4.000K</option>
+                            <option value="full-combo">Full combo + 365 ngày support - 9.000K</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Ghi chú</label>
+                        <textarea name="notes" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Thắc mắc hoặc yêu cầu đặc biệt..." data-mock="true"></textarea>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="agree-terms" name="agreeTerms" required class="mt-1 mr-3">
+                        <label for="agree-terms" class="text-sm text-gray-600">
+                            Tôi đồng ý với <a href="#" class="text-primary hover:underline">điều khoản sử dụng</a> và <a href="#" class="text-primary hover:underline">chính sách bảo mật</a> của HDT AI
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-colors transform hover:scale-105" data-event="click:handleSubmit">
+                        <i class="fas fa-paper-plane mr-2"></i>Đăng ký gói
+                    </button>
+
+                    <div class="text-center text-sm text-gray-500 mt-4">
+                        Sau khi đăng ký, bộ phận CSKH của HDT AI sẽ liên hệ với bạn để xác nhận thông tin.
+                    </div>
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div id="success-message" class="hidden bg-green-50 border border-green-200 rounded-lg p-4 mt-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <div>
+                            <h3 class="font-semibold text-green-800">Đăng ký thành công!</h3>
+                            <p class="text-green-600">Chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Registration Form -->
+
+    <!-- @COMPONENT: Payment Information -->
+    <!-- Payment Information Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">💳 Thông tin chuyển khoản</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-primary to-blue-600 text-white rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Thông tin tài khoản</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span>Ngân hàng:</span>
+                                <span class="font-semibold">Techcombank</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Chủ tài khoản:</span>
+                                <span class="font-semibold" data-mock="true">Hoang Anh Tu</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Số tài khoản:</span>
+                                <span class="font-semibold" data-mock="true">88043333333</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 class="text-lg font-semibold text-gray-900">📋 Lưu ý quan trọng:</h3>
+                        <ul class="space-y-2 text-sm text-gray-600">
+                            <li class="flex items-start">
+                                <span class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">1</span>
+                                Chỉ chuyển khoản sau khi đã hoàn tất bấm "Đăng ký gói"
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">2</span>
+                                Khi chuyển khoản, vui lòng ghi rõ HỌ TÊN + SỐ ĐIỆN THOẠI
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">3</span>
+                                Giữ lại biên lai/chụp màn hình giao dịch để đối chiếu
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">4</span>
+                                Trong vòng 24 giờ sau khi xác nhận thanh toán, sẽ có nhân viên liên hệ
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-accent text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-3 mt-0.5">5</span>
+                                Tuyệt đối không chuyển khoản qua bất kỳ hình thức trung gian khác
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Payment Information -->
+
+    <!-- @COMPONENT: Contact Section -->
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Liên hệ với chúng tôi</h2>
+                <p class="text-xl text-gray-600">HDT AI luôn sẵn sàng hỗ trợ bạn</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Office Information -->
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">🏢 ĐỊA CHỈ VĂN PHÒNG</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mr-3 mt-1"></i>
+                            <div>
+                                <p class="font-medium" data-mock="true">203 Bế Văn Đàn</p>
+                                <p class="text-gray-600" data-mock="true">Quang Trung - Đống Đa - Hà Nội</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary mr-3"></i>
+                            <span data-mock="true">+84 33 473 4875</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span data-mock="true">gattsvn@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Working Hours -->
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">⏰ THỜI GIAN LÀM VIỆC</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span>Thứ 2 - Thứ 6:</span>
+                            <span class="font-medium" data-mock="true">8AM đến 5PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Thứ 7:</span>
+                            <span class="font-medium" data-mock="true">8AM đến 11AM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Chủ nhật:</span>
+                            <span class="font-medium text-accent" data-mock="true">Nghỉ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Groups -->
+                <div class="bg-gray-50 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">👥 Hội nhóm</h3>
+                    <div class="space-y-4">
+                        <a href="https://zalo.me/g/ylfdge520" class="flex items-center p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors" data-mock="true">
+                            <i class="fas fa-users mr-3"></i>
+                            <span>Nhóm Zalo</span>
+                        </a>
+                        <div class="flex items-center p-3 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed">
+                            <i class="fab fa-telegram mr-3"></i>
+                            <span>Nhóm Telegram (đang cập nhật)</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-gray-300 text-gray-500 rounded-lg cursor-not-allowed">
+                            <i class="fab fa-facebook mr-3"></i>
+                            <span>Fanpage FB (đang cập nhật)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy Links -->
+            <div class="mt-16 text-center">
+                <div class="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">🛡️ CHÍNH SÁCH & BẢO MẬT</h3>
+                    <p class="text-gray-600 mb-4">Cập nhật lần cuối: 02/07/2025</p>
+                    <p class="text-sm text-gray-500 mb-4">
+                        Chúng tôi cam kết bảo vệ thông tin cá nhân và quyền riêng tư của khách hàng. 
+                        Tất cả dữ liệu được thu thập và xử lý tuân thủ nghiêm ngặt các quy định pháp luật hiện hành.
+                    </p>
+                    <a href="/policies" class="text-primary hover:underline font-medium">
+                        👉 Xem chi tiết chính sách tại trang Chính sách & Bảo mật của chúng tôi.
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">HDT AI</h3>
+                    <p class="text-gray-300 mb-4">Công ty cổ phần thương mại điện tử HDT AI</p>
+                    <p class="text-gray-300 text-sm">Công nghệ AI - Tự động hóa - Giáo dục</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Khóa học</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="/canva" class="hover:text-white transition-colors" data-mock="true">Canva</a></li>
+                        <li><a href="/chatgpt" class="hover:text-white transition-colors" data-mock="true">ChatGPT</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">AI Master</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">AI Automation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Liên kết</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#home" class="hover:text-white transition-colors">Giới thiệu</a></li>
+                        <li><a href="#courses" class="hover:text-white transition-colors">Khóa học</a></li>
+                        <li><a href="#news" class="hover:text-white transition-colors">Tin tức</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Kết nối</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://zalo.me/g/ylfdge520" class="text-gray-300 hover:text-white transition-colors" data-mock="true">
+                            <i class="fas fa-users text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 HDT AI. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <script>
+        // Mobile menu toggle
+        (function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        })();
+
+        // Countdown Timer functionality
+        (function() {
+            // TODO: Implement real countdown logic with target date
+            // This is just a visual placeholder
+            const updateCountdown = () => {
+                // Mock countdown values for demonstration
+                document.getElementById('days').textContent = Math.floor(Math.random() * 30);
+                document.getElementById('hours').textContent = Math.floor(Math.random() * 24);
+                document.getElementById('minutes').textContent = Math.floor(Math.random() * 60);
+                document.getElementById('seconds').textContent = Math.floor(Math.random() * 60);
+            };
+
+            // Update every second (for demo purposes)
+            // setInterval(updateCountdown, 1000);
+        })();
+
+        // Registration form handling
+        (function() {
+            const form = document.getElementById('registration-form');
+            const successMessage = document.getElementById('success-message');
+
+            if (form && successMessage) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // TODO: Implement Google Sheets API integration
+                    // TODO: Implement form validation
+                    // TODO: Implement success/error handling
+                    
+                    // Mock success response
+                    form.style.display = 'none';
+                    successMessage.classList.remove('hidden');
+                    
+                    console.log('Form submitted - integrate with Google Sheets API');
+                });
+            }
+        })();
+
+        // Smooth scrolling for navigation links
+        (function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -11,6 +11,14 @@ export class GoogleSheetsService {
 
   private initializeAuth() {
     try {
+      console.log('🔧 Initializing Google Sheets auth...');
+      console.log('Environment variables check:');
+      console.log('- GOOGLE_PROJECT_ID:', process.env.GOOGLE_PROJECT_ID ? '✅ Set' : '❌ Missing');
+      console.log('- GOOGLE_PRIVATE_KEY_ID:', process.env.GOOGLE_PRIVATE_KEY_ID ? '✅ Set' : '❌ Missing');
+      console.log('- GOOGLE_PRIVATE_KEY:', process.env.GOOGLE_PRIVATE_KEY ? '✅ Set' : '❌ Missing');
+      console.log('- GOOGLE_SERVICE_ACCOUNT_EMAIL:', process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL ? '✅ Set' : '❌ Missing');
+      console.log('- GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID ? '✅ Set' : '❌ Missing');
+
       // Initialize Google Auth with service account
       this.auth = new google.auth.GoogleAuth({
         credentials: {
@@ -29,8 +37,9 @@ export class GoogleSheetsService {
       });
 
       this.sheets = google.sheets({ version: 'v4', auth: this.auth });
+      console.log('✅ Google Sheets auth initialized successfully');
     } catch (error) {
-      console.error('Failed to initialize Google Sheets auth:', error);
+      console.error('❌ Failed to initialize Google Sheets auth:', error);
     }
   }
 
