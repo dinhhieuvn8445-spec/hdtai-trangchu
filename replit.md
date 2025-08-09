@@ -4,6 +4,8 @@
 
 This is a modern web application built as a landing page for HDT AI's professional AI courses. The application features a React-based frontend with a Node.js/Express backend, specifically designed to showcase AI training courses (ChatGPT, AI Automation) and handle course registrations. The project implements a full-stack architecture with form handling, data persistence, and a responsive UI built with shadcn/ui components.
 
+**Status**: Production-ready with Vercel deployment configuration complete. Website fully functional with real instructor photos integrated and registration system operational.
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -47,3 +49,5 @@ Preferred communication style: Simple, everyday language.
 - **Responsive Design**: Mobile-first approach with Tailwind CSS breakpoints
 - **Vietnamese Localization**: All UI text and content in Vietnamese for target audience
 - **Development Experience**: Hot reloading, error overlays, and TypeScript checking for rapid development
+- **Vercel Deployment**: Optimized for serverless deployment with vercel.json configuration, API routes, and static build process
+- **Real Instructor Photos**: Integrated 3 custom instructor photos (Hoàng Anh Tú, Thanh Hải, HPT) as requested by user
