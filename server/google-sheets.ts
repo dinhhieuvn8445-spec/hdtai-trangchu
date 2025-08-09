@@ -23,7 +23,7 @@ export class GoogleSheetsService {
           // auth_uri: 'https://accounts.google.com/o/oauth2/auth', // Removed: Not a valid credential property
           // token_uri: 'https://oauth2.googleapis.com/token', // Removed: Not a valid credential property
           // auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs', // Removed: Not a valid credential property
-          client_x509_cert_url: `https://www.googleapis.com/robot/v1/metadata/x509/${process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.replace('@', '%40')}`
+          // client_x509_cert_url: `https://www.googleapis.com/robot/v1/metadata/x509/${process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.replace('@', '%40')}` // Removed: Not a valid credential property
         },
         scopes: ['https://www.googleapis.com/auth/spreadsheets']
       });
