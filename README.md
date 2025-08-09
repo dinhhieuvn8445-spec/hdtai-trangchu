@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # HDT AI - Vietnamese AI Education Platform
 
 A modern Vietnamese AI education website built for Vercel deployment, featuring course registration with Google Sheets integration.
@@ -79,3 +80,6 @@ The registration form automatically sends data to Google Sheets:
 ✅ Build scripts optimized
 
 Ready to deploy to Vercel immediately!
+=======
+# hdtai-trangchu
+>>>>>>> 73affdd92d856c92d9a813de7595bde278cfef15
