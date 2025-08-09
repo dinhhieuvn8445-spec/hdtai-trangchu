@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertRegistrationSchema } from "@shared/schema";
+import { googleSheetsService } from "./google-sheets";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Registration endpoint
@@ -10,9 +11,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertRegistrationSchema.parse(req.body);
       const registration = await storage.createRegistration(validatedData);
       
-      // Here you would integrate with Google Sheets API
-      // For now, we'll just store in memory and log
       console.log("New registration:", registration);
+      
+      // Try to add to Google Sheets
+      try {
+        const sheetsSuccess = await googleSheetsService.addRegistration(registration);
+        if (sheetsSuccess) {
+          console.log("✅ Successfully added to Google Sheets");
+        } else {
+          console.log("⚠️ Google Sheets not configured, data stored locally only");
+        }
+      } catch (sheetsError) {
+        console.error("❌ Google Sheets error:", sheetsError);
+        // Continue even if Sheets fails - data is still stored locally
+      }
       
       res.json({ 
         success: true, 
