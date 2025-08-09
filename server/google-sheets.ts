@@ -11,14 +11,6 @@ export class GoogleSheetsService {
 
   private initializeAuth() {
     try {
-      console.log('🔧 Initializing Google Sheets auth...');
-      console.log('Environment variables check:');
-      console.log('- GOOGLE_PROJECT_ID:', process.env.GOOGLE_PROJECT_ID ? '✅ Set' : '❌ Missing');
-      console.log('- GOOGLE_PRIVATE_KEY_ID:', process.env.GOOGLE_PRIVATE_KEY_ID ? '✅ Set' : '❌ Missing');
-      console.log('- GOOGLE_PRIVATE_KEY:', process.env.GOOGLE_PRIVATE_KEY ? '✅ Set' : '❌ Missing');
-      console.log('- GOOGLE_SERVICE_ACCOUNT_EMAIL:', process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL ? '✅ Set' : '❌ Missing');
-      console.log('- GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID ? '✅ Set' : '❌ Missing');
-
       // Initialize Google Auth with service account
       this.auth = new google.auth.GoogleAuth({
         credentials: {
@@ -28,22 +20,21 @@ export class GoogleSheetsService {
           private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
           client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
           client_id: process.env.GOOGLE_CLIENT_ID,
-          auth_uri: 'https://accounts.google.com/o/oauth2/auth',
-          token_uri: 'https://oauth2.googleapis.com/token',
-          auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
+          // auth_uri: 'https://accounts.google.com/o/oauth2/auth', // Removed: Not a valid credential property
+          // token_uri: 'https://oauth2.googleapis.com/token', // Removed: Not a valid credential property
+          // auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs', // Removed: Not a valid credential property
           client_x509_cert_url: `https://www.googleapis.com/robot/v1/metadata/x509/${process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.replace('@', '%40')}`
         },
         scopes: ['https://www.googleapis.com/auth/spreadsheets']
       });
 
       this.sheets = google.sheets({ version: 'v4', auth: this.auth });
-      console.log('✅ Google Sheets auth initialized successfully');
     } catch (error) {
-      console.error('❌ Failed to initialize Google Sheets auth:', error);
+      console.error('Failed to initialize Google Sheets auth:', error);
     }
   }
 
-  async addRegistration(registration: InsertRegistration & { id: string; createdAt: Date }): Promise<boolean> {
+  async addRegistration(registration: InsertRegistration & { id: string; createdAt: Date | null }): Promise<boolean> {
     try {
       const spreadsheetId = '15dd9lP2bOIPJG6t2bcwJNPSSelTwoy9hyZsnN6Z22gU';
       
@@ -53,8 +44,11 @@ export class GoogleSheetsService {
         return false;
       }
 
+      // Ensure createdAt is a Date object
+      const createdAtDate = registration.createdAt instanceof Date ? registration.createdAt : new Date();
+
       // Format data for Google Sheets
-      const timestamp = registration.createdAt.toLocaleString('vi-VN', {
+      const timestamp = createdAtDate.toLocaleString('vi-VN', {
         timeZone: 'Asia/Ho_Chi_Minh',
         year: 'numeric',
         month: '2-digit',
@@ -131,3 +125,5 @@ export class GoogleSheetsService {
 }
 
 export const googleSheetsService = new GoogleSheetsService();
+
+

@@ -15,7 +15,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Try to add to Google Sheets
       try {
-        const sheetsSuccess = await googleSheetsService.addRegistration(registration);
+        // Ensure createdAt is always a Date object before passing to Google Sheets
+        const sheetsRegistration = {
+          ...registration,
+          createdAt: registration.createdAt || new Date() // Provide a default Date if null
+        };
+        const sheetsSuccess = await googleSheetsService.addRegistration(sheetsRegistration);
         if (sheetsSuccess) {
           console.log("✅ Successfully added to Google Sheets");
         } else {
@@ -54,3 +59,5 @@ export async function registerRoutes(app: Express): Promise<Server> {
   const httpServer = createServer(app);
   return httpServer;
 }
+
+

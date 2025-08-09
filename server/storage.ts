@@ -40,7 +40,8 @@ export class MemStorage implements IStorage {
     const registration: Registration = { 
       ...insertRegistration, 
       id, 
-      createdAt: new Date() 
+      createdAt: new Date(),
+      notes: insertRegistration.notes === undefined ? null : insertRegistration.notes // Ensure notes is string or null
     };
     this.registrations.set(id, registration);
     return registration;
@@ -52,3 +53,5 @@ export class MemStorage implements IStorage {
 }
 
 export const storage = new MemStorage();
+
+
