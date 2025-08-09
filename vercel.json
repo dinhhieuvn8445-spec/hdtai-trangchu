@@ -4,10 +4,7 @@
     {
       "src": "client/index.html",
       "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "vite build",
-        "outputDirectory": "dist"
-      }
+      "config": { "distDir": "client/dist" }
     },
     {
       "src": "api/index.ts",
@@ -17,19 +14,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.ts"
+      "dest": "/api"
     },
     {
       "src": "/(.*)",
-      "dest": "/client/index.html"
+      "dest": "/client"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "functions": {
-    "api/index.ts": {
-      "maxDuration": 30
-    }
-  }
+  ]
 }
