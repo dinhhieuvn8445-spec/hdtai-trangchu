@@ -138,10 +138,14 @@ export default function RegistrationForm() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="ai-master">PHẦN I – AI MASTER - 3.000K</SelectItem>
-                          <SelectItem value="ai-automation">PHẦN II – AI AUTOMATION - 3.000K</SelectItem>
-                          <SelectItem value="ai-real-work">PHẦN III – AI IN REAL WORK - 4.000K</SelectItem>
-                          <SelectItem value="full-combo">Full combo + 365 ngày support - 9.000K</SelectItem>
+                          <SelectItem value="ai-master">PHẦN I – AI MASTER - 3.000K VNĐ</SelectItem>
+                          <SelectItem value="ai-automation">PHẦN II – AI AUTOMATION - 3.000K VNĐ</SelectItem>
+                          <SelectItem value="ai-real-work">PHẦN III – AI IN REAL WORK - 4.000K VNĐ</SelectItem>
+                          <SelectItem value="full-combo">Full combo + 365 ngày support - 9.000K VNĐ</SelectItem>
+                          <SelectItem value="khoa-hoc-online">Khóa học Online - 9 triệu VNĐ</SelectItem>
+                          <SelectItem value="dao-tao-online">Đào tạo Online theo giáo trình - 15 triệu VNĐ</SelectItem>
+                          <SelectItem value="dao-tao-tai-cong-ty">Đào tạo trực tiếp tại công ty - 16 triệu VNĐ</SelectItem>
+                          <SelectItem value="dao-tao-tai-nha">Đào tạo tại nhà học sinh - 20 triệu VNĐ</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />

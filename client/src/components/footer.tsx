@@ -7,8 +7,8 @@ export default function Footer() {
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="flex items-center space-x-2 mb-6">
-                <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                  <i className="fas fa-robot text-white text-lg"></i>
+                <div className="w-32 h-32 rounded-lg flex items-center justify-center">
+                  <img src="/hdt-logo-new.png" alt="HDT AI Logo" className="w-32 h-32 rounded-lg object-cover" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">HDT AI</h3>
@@ -37,7 +37,7 @@ export default function Footer() {
               <div className="space-y-4 text-slate-300">
                 <div className="flex items-start space-x-3">
                   <i className="fas fa-map-marker-alt mt-1 text-primary-400"></i>
-                  <p className="text-sm">203 Bế Văn Đàn - Quang Trung - Đống Đa - Hà Nội</p>
+                  <p className="text-sm">203 Bế Văn Đàn - Quang Trung - Hà Đông - Hà Nội</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <i className="fas fa-phone text-primary-400"></i>

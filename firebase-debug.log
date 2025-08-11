@@ -1,0 +1,37 @@
+[debug] [2025-08-10T11:05:06.902Z] ----------------------------------------------------------------------
+[debug] [2025-08-10T11:05:06.905Z] Command:       /home/ubuntu/.nvm/versions/node/v22.13.0/bin/node /home/ubuntu/.nvm/versions/node/v22.13.0/bin/firebase deploy --only hosting
+[debug] [2025-08-10T11:05:06.906Z] CLI Version:   14.12.0
+[debug] [2025-08-10T11:05:06.906Z] Platform:      linux
+[debug] [2025-08-10T11:05:06.906Z] Node Version:  v22.13.0
+[debug] [2025-08-10T11:05:06.906Z] Time:          Sun Aug 10 2025 07:05:06 GMT-0400 (Eastern Daylight Time)
+[debug] [2025-08-10T11:05:06.906Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-10T11:05:07.196Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-10T11:05:07.197Z] > authorizing via signed-in user (hdtai20055@gmail.com)
+[debug] [2025-08-10T11:05:07.197Z] [iam] checking project pelagic-voice-468609-k2 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-08-10T11:05:07.198Z] Checked if tokens are valid: true, expires at: 1754827404163
+[debug] [2025-08-10T11:05:07.198Z] Checked if tokens are valid: true, expires at: 1754827404163
+[debug] [2025-08-10T11:05:07.199Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/pelagic-voice-468609-k2:testIamPermissions [none]
+[debug] [2025-08-10T11:05:07.199Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/pelagic-voice-468609-k2:testIamPermissions x-goog-quota-user=projects/pelagic-voice-468609-k2
+[debug] [2025-08-10T11:05:07.199Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/pelagic-voice-468609-k2:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-08-10T11:05:07.314Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/pelagic-voice-468609-k2:testIamPermissions 200
+[debug] [2025-08-10T11:05:07.314Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/pelagic-voice-468609-k2:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-08-10T11:05:07.315Z] Checked if tokens are valid: true, expires at: 1754827404163
+[debug] [2025-08-10T11:05:07.315Z] Checked if tokens are valid: true, expires at: 1754827404163
+[debug] [2025-08-10T11:05:07.315Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pelagic-voice-468609-k2 [none]
+[debug] [2025-08-10T11:05:07.613Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pelagic-voice-468609-k2 404
+[debug] [2025-08-10T11:05:07.614Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pelagic-voice-468609-k2 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-08-10T11:05:07.615Z] Couldn't get project info from firedata for pelagic-voice-468609-k2, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/pelagic-voice-468609-k2 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-08-10T11:05:07.615Z] Checked if tokens are valid: true, expires at: 1754827404163
+[debug] [2025-08-10T11:05:07.615Z] Checked if tokens are valid: true, expires at: 1754827404163
+[debug] [2025-08-10T11:05:07.615Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/pelagic-voice-468609-k2 [none]
+[debug] [2025-08-10T11:05:07.710Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/pelagic-voice-468609-k2 200
+[debug] [2025-08-10T11:05:07.711Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/pelagic-voice-468609-k2 {"projectNumber":"844639073173","projectId":"pelagic-voice-468609-k2","lifecycleState":"ACTIVE","name":"My First Project","createTime":"2025-08-10T09:29:27.163746Z"}
+[debug] [2025-08-10T11:05:07.711Z] the default site does not exist on the Firebase project; asking Hosting.
+[debug] [2025-08-10T11:05:07.711Z] Checked if tokens are valid: true, expires at: 1754827404163
+[debug] [2025-08-10T11:05:07.711Z] Checked if tokens are valid: true, expires at: 1754827404163
+[debug] [2025-08-10T11:05:07.711Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/pelagic-voice-468609-k2/sites pageToken=&pageSize=10
+[debug] [2025-08-10T11:05:08.112Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/pelagic-voice-468609-k2/sites 404
+[debug] [2025-08-10T11:05:08.113Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/pelagic-voice-468609-k2/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[error] 
+[error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier

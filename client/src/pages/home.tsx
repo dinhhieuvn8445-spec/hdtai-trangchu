@@ -2,6 +2,7 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import Features from "@/components/features";
 import Curriculum from "@/components/curriculum";
+import CurriculumDetails from "@/components/curriculum-details";
 import Instructors from "@/components/instructors";
 import Countdown from "@/components/countdown";
 import RegistrationForm from "@/components/registration-form";
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Features />
       <Curriculum />
+      <CurriculumDetails />
       <Instructors />
       <Countdown />
       <RegistrationForm />

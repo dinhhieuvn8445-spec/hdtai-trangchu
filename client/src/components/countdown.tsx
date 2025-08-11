@@ -10,7 +10,7 @@ export default function Countdown() {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2025-10-30T23:59:59').getTime();
+    const targetDate = new Date('2025-09-02T23:59:59').getTime();
     
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -47,7 +47,7 @@ export default function Countdown() {
             ⏰ THỜI GIAN ƯU ĐÃI CÓ HẠN
           </h2>
           <p className="text-xl mb-8">
-            Đăng ký trước ngày 30/10/2025 để nhận ưu đãi đặc biệt
+            Đăng ký trước ngày 2/9 để nhận ưu đãi đặc biệt
           </p>
 
           {/* Countdown Timer */}
