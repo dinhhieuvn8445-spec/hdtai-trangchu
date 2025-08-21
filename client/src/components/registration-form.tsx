@@ -90,7 +90,7 @@ export default function RegistrationForm() {
                       <FormItem>
                         <FormLabel>Họ và tên *</FormLabel>
                         <FormControl>
-                          <Input placeholder="Nhập họ và tên của bạn" {...field} />
+                          <Input placeholder="Nhập họ và tên của bạn" {...field} value={field.value || ''} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -103,7 +103,7 @@ export default function RegistrationForm() {
                       <FormItem>
                         <FormLabel>Số điện thoại *</FormLabel>
                         <FormControl>
-                          <Input placeholder="Nhập số điện thoại" {...field} />
+                          <Input placeholder="Nhập số điện thoại" {...field} value={field.value || ''} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -118,7 +118,7 @@ export default function RegistrationForm() {
                     <FormItem>
                       <FormLabel>Email *</FormLabel>
                       <FormControl>
-                        <Input placeholder="Nhập địa chỉ email" type="email" {...field} />
+                        <Input placeholder="Nhập địa chỉ email" type="email" {...field} value={field.value || ''} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -131,7 +131,7 @@ export default function RegistrationForm() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Chọn gói học *</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                      <Select onValueChange={field.onChange} value={field.value || ''}>
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="-- Chọn gói học --" />
@@ -163,7 +163,7 @@ export default function RegistrationForm() {
                         <Textarea 
                           placeholder="Có câu hỏi gì không? (không bắt buộc)" 
                           rows={3}
-                          {...field} 
+                          {...field} value={field.value || ''} 
                         />
                       </FormControl>
                       <FormMessage />

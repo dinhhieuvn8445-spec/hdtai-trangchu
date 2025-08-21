@@ -4,21 +4,14 @@
     {
       "src": "client/package.json",
       "use": "@vercel/static-build",
-      "config": { "outputDirectory": "client/dist" }
-    },
-    {
-      "src": "api/index.ts",
-      "use": "@vercel/node"
+      "config": { "outputDirectory": "dist", "buildCommand": "npm run build:client" }
     }
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api"
-    },
-    {
       "source": "/(.*)",
-      "destination": "/client/dist/$1"
+      "destination": "/index.html"
     }
   ]
 }
+
